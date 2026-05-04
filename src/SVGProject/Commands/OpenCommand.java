@@ -1,6 +1,6 @@
 package SVGProject.Commands;
 
-public class openCommand {
+public class OpenCommand {
 
     private static void CommandOpen() throws Exception{
 

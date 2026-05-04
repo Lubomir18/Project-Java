@@ -2,7 +2,7 @@ package SVGProject.Commands;
 
 import SVGProject.Console;
 
-public class helpCommand {
+public class HelpCommand {
 
     public static void CommandHelp(){
 

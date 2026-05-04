@@ -1,6 +1,6 @@
 package SVGProject.Commands;
 
-public class exitCommand {
+public class ExitCommand {
 
 
 

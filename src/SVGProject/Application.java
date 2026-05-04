@@ -1,6 +1,6 @@
 package SVGProject;
 
-import SVGProject.Commands.helpCommand;
+import SVGProject.Commands.HelpCommand;
 import java.util.Scanner;
 
 public class Application {
@@ -18,7 +18,7 @@ public class Application {
 
             if(command.equalsIgnoreCase("help")){
                 if(parts.length == 1){
-                    helpCommand.CommandHelp();
+                    HelpCommand.CommandHelp();
                 }
                 else{
                     for(int i=0;i< parts.length;i++){

@@ -1,4 +1,4 @@
 package SVGProject.Commands;
 
-public class saveAsCommand {
+public class SaveAsCommand {
 }
