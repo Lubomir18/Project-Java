@@ -1,4 +1,4 @@
-package SVGProject;
+package SVGProject.FileControl;
 
 import java.io.IOException;
 import java.nio.file.Files;

@@ -1,4 +1,4 @@
-package SVGProject;
+package SVGProject.Commands;
 
 public class Console {
 

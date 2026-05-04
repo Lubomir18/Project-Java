@@ -1,6 +1,6 @@
 package SVGProject.Commands;
 
-import SVGProject.Command;
+import SVGProject.CommandProcess.Command;
 import SVGProject.FileControl.FileManager;
 
 public class CloseCommand implements Command {
