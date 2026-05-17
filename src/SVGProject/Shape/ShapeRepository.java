@@ -23,11 +23,12 @@ public class ShapeRepository {
         }
     }
 
-    public void erase(int index){
-        if(index < 1 || index > shapes.size()){
-            Console.log("Invalid Index");
+    public void erase(int index) {
+
+        if (index < 1 || index > shapes.size()) {
             return;
         }
+
         shapes.remove(index - 1);
     }
 

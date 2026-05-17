@@ -20,23 +20,6 @@ public class FileManager {
         return currentFile != null;
     }
 
-//    public void open(String path){
-//        try {
-//            File file = new File(path);
-//
-//            if (!file.exists()){
-//                file.createNewFile();
-//            }
-//
-//            currentFile = path;
-//
-//            Console.log("Successfully opened " + path);
-//
-//        } catch (IOException e) {
-//            Console.log("Error opening file");
-//        }
-//    }
-
     public void open(String path) {
 
         File file = new File(path);
@@ -98,6 +81,17 @@ public class FileManager {
             Console.log("Error saving file");
         }
 
+    }
+
+    public void erase(int index) {
+        if (index < 1 || index > shapes.size()) {
+            Console.log("There is no figure number " + index + "!");
+            return;
+        }
+
+        ShapeBase removed = shapes.remove(index - 1);
+
+        Console.log("Erased " + removed.getClass().getSimpleName() + " (" + index + ")");
     }
 
     private void writeToFile(String path){

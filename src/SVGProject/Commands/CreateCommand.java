@@ -19,14 +19,14 @@ public class CreateCommand implements Command {
         try{
             ShapeBase shape;
 
-            if(args[1].equals("circle")){
+            if(args[1].equalsIgnoreCase("circle")){
                 shape = new Circle(
                         Double.parseDouble(args[2]),
                         Double.parseDouble(args[3]),
                         Double.parseDouble(args[4])
                 );
             }
-            else if(args[1].equals("rectangle")){
+            else if(args[1].equalsIgnoreCase("rectangle")){
                 shape = new Rectangle(
                         Double.parseDouble(args[2]),
                         Double.parseDouble(args[3]),
