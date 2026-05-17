@@ -1,10 +1,19 @@
 package SVGProject.FileControl;
 
+import java.awt.*;
 import java.io.*;
+import SVGProject.Commands.Console;
+import SVGProject.SVG.SvgWriter;
+import SVGProject.Shape.ShapeRepository;
 
 public class FileManager {
     private String currentFile;
     private String content;
+    private ShapeRepository repo;
+
+    public FileManager(ShapeRepository repo) {
+        this.repo = repo;
+    }
 
     public boolean hasFile(){
         return currentFile != null;
@@ -16,48 +25,51 @@ public class FileManager {
 
             if (!file.exists()){
                 file.createNewFile();
-                content = "";
-            } else {
-                BufferedReader reader = new BufferedReader(new FileReader(file));
-                StringBuilder builder = new StringBuilder();
-                String line;
-
-                while ((line = reader.readLine()) != null) {
-                    builder.append(line).append("\n");
-                }
             }
+
+            currentFile = path;
+
+            Console.log("Successfully opened " + path);
+
         } catch (IOException e) {
-            System.out.println("Error opening file");
+            Console.log("Error opening file");
         }
     }
 
     public void close(){
         if(!hasFile()){
-            System.out.println("No file opened");
+            Console.log("No file opened");
             return;
         }
 
-        System.out.println("Successfully closed " + currentFile);
+        Console.log("Successfully closed " + currentFile);
         currentFile = null;
         content = null;
     }
 
     public void save(){
-        if(!hasFile()){
-            System.out.println("No File opened");
+        if(currentFile == null){
+            Console.log("No file opened");
             return;
         }
 
-        writeToFile(currentFile);
+        try {
+            new SvgWriter().save(currentFile, repo);
+            Console.log("Successfully saved " + currentFile);
+        } catch (Exception e) {
+            throw new RuntimeException("Error saving file");
+        }
     }
 
     public void saveAs(String path){
-        if(!hasFile()){
-            System.out.println("No File opened");
-            return;
+        try {
+            new SvgWriter().save(path, repo);
+            currentFile = path;
+            Console.log("Successfully saved " + path);
+        } catch (Exception e) {
+            throw new RuntimeException("Error saving file");
         }
 
-        writeToFile(path);
     }
 
     private void writeToFile(String path){
@@ -66,10 +78,10 @@ public class FileManager {
             writer.write(content);
             writer.close();
 
-            System.out.println("Successfully saved to " + path);
+            Console.log("Successfully saved to " + path);
 
         } catch (IOException e) {
-            System.out.println("Error saving file");
+            throw new RuntimeException("Error saving file");
         }
     }
 }

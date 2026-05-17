@@ -1,5 +1,6 @@
 package SVGProject.SVG;
 
+import SVGProject.Commands.Console;
 import SVGProject.Shape.ShapeBase;
 import SVGProject.Shape.ShapeRepository;
 
@@ -22,7 +23,7 @@ public class SvgWriter {
             pw.println("/svg");
 
         } catch (Exception e) {
-            System.out.println("Error writing SVG");;
+            Console.log("Error writing SVG");;
         }
 
     }

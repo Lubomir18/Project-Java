@@ -1,5 +1,7 @@
 package SVGProject.FileControl;
 
+import SVGProject.Commands.Console;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -17,16 +19,16 @@ public class readFile {
             List<String> lines = Files.readAllLines(Path.of(fileName));
 
             if (lines.isEmpty()) {
-                System.out.println("Файла е празен.");
+                Console.log("Файла е празен.");
                 return;
             }
 
             for (String line : lines) {
-                System.out.println(line);
+                Console.log(line);
             }
 
         } catch (IOException e) {
-            System.out.println("Не е намерен файла.");
+            Console.log("Не е намерен файла.");
         }
 
     }

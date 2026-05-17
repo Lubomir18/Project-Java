@@ -1,5 +1,7 @@
 package SVGProject.Shape;
 
+import SVGProject.Commands.Console;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,13 +15,13 @@ public class ShapeRepository {
 
     public void print(){
         for (int i = 0; i < shapes.size(); i++){
-            System.out.println((i + 1) + ". " + shapes.get(i).info());
+            Console.log((i + 1) + ". " + shapes.get(i).info());
         }
     }
 
     public void erase(int index){
         if(index < 1 || index > shapes.size()){
-            System.out.println("Invalid Index");
+            Console.log("Invalid Index");
             return;
         }
         shapes.remove(index - 1);

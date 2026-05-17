@@ -13,11 +13,9 @@ public class OpenCommand implements Command {
 
     @Override
     public void execute(String[] args) {
-        if(args.length < 2){
-            System.out.println("Usage: open <file>");
-            return;
-        }
+        if (args.length < 2) {
+            Console.log("Usage: open <file>");
 
-        fileManager.open(args[1]);
+        }
     }
 }

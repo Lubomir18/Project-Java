@@ -39,7 +39,7 @@ public class SvgParser {
             }
 
         } catch (Exception e) {
-            System.out.println("Error reading SVG");;
+            throw new RuntimeException("Error reading SVG");
         }
 
     }

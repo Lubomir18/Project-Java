@@ -13,11 +13,9 @@ public class SaveAsCommand implements Command {
 
     @Override
     public void execute(String[] args) {
-        if(args.length < 2){
-            System.out.println("Usage: save as <file>");
+        if (args.length < 2) {
+            Console.log("Usage: save as <file>");
             return;
         }
-
-        fileManager.saveAs(args[1]);
     }
 }
