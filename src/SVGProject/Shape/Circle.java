@@ -20,7 +20,7 @@ public class Circle implements ShapeBase {
     public boolean isInside(double x, double y) {
         double dx = cx - x;
         double dy = cy - y;
-        return dx * dx + dy + dy <= r * r;
+        return dx * dx + dy * dy <= r * r;
     }
 
     @Override

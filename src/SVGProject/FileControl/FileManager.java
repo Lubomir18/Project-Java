@@ -5,6 +5,7 @@ import java.io.*;
 import SVGProject.Commands.Console;
 import SVGProject.SVG.SvgWriter;
 import SVGProject.Shape.ShapeRepository;
+import SVGProject.SVG.SvgParser;
 
 public class FileManager {
     private String currentFile;
@@ -19,13 +20,35 @@ public class FileManager {
         return currentFile != null;
     }
 
-    public void open(String path){
+//    public void open(String path){
+//        try {
+//            File file = new File(path);
+//
+//            if (!file.exists()){
+//                file.createNewFile();
+//            }
+//
+//            currentFile = path;
+//
+//            Console.log("Successfully opened " + path);
+//
+//        } catch (IOException e) {
+//            Console.log("Error opening file");
+//        }
+//    }
+
+    public void open(String path) {
         try {
             File file = new File(path);
 
-            if (!file.exists()){
+            if (!file.exists()) {
                 file.createNewFile();
             }
+
+            repo.clear();
+
+            SvgParser parser = new SvgParser();
+            parser.parse(path, repo);
 
             currentFile = path;
 
@@ -57,7 +80,7 @@ public class FileManager {
             new SvgWriter().save(currentFile, repo);
             Console.log("Successfully saved " + currentFile);
         } catch (Exception e) {
-            throw new RuntimeException("Error saving file");
+            Console.log("Error saving file");
         }
     }
 
@@ -67,7 +90,7 @@ public class FileManager {
             currentFile = path;
             Console.log("Successfully saved " + path);
         } catch (Exception e) {
-            throw new RuntimeException("Error saving file");
+            Console.log("Error saving file");
         }
 
     }

@@ -20,7 +20,9 @@ public class SvgParser {
             String line;
             while((line = br.readLine()) != null){
 
-                if (line.contains("<circle")){
+                line = line.trim();
+
+                if (line.startsWith("<circle")){
                     double cx = extract(line, "cx");
                     double cy = extract(line, "cy");
                     double r = extract(line, "r");
@@ -28,7 +30,7 @@ public class SvgParser {
                     repo.add(new Circle(cx,cy,r));
                 }
 
-                if(line.contains("<rect")){
+                if (line.startsWith("<rect")){
                     double x = extract(line, "x");
                     double y = extract(line, "y");
                     double w = extract(line, "width");

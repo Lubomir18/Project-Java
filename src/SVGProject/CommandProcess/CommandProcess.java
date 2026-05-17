@@ -19,7 +19,7 @@ public class CommandProcess {
         commands.put("open", new OpenCommand(fileManager));
         commands.put("close", new CloseCommand(fileManager));
         commands.put("save", new SaveCommand(fileManager));
-        commands.put("saveаs", new SaveAsCommand(fileManager));
+        commands.put("saveas", new SaveAsCommand(fileManager));
         commands.put("help", new HelpCommand(fileManager));
         commands.put("exit", new ExitCommand(fileManager));
         commands.put("print", new PrintCommand(shapeRepository));

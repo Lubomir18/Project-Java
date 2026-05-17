@@ -13,6 +13,10 @@ public class ShapeRepository {
         shapes.add(s);
     }
 
+    public void clear(){
+        shapes.clear();
+    }
+
     public void print(){
         for (int i = 0; i < shapes.size(); i++){
             Console.log((i + 1) + ". " + shapes.get(i).info());

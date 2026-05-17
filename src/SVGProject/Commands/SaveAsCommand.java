@@ -17,5 +17,7 @@ public class SaveAsCommand implements Command {
             Console.log("Usage: save as <file>");
             return;
         }
+
+        fileManager.saveAs(args[1]);
     }
 }

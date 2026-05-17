@@ -20,7 +20,7 @@ public class SvgWriter {
                 pw.println(" " + s.toSVG());
             }
 
-            pw.println("/svg");
+            pw.println("</svg>");
 
         } catch (Exception e) {
             Console.log("Error writing SVG");;
