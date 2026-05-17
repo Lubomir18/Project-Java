@@ -72,4 +72,12 @@ public class ShapeRepository {
         return shapes;
     }
 
+    public void printWithinCircle(double cx, double cy, double r){
+
+    }
+
+    public void printWithinRectangle(double cx, double cy, double width, double height){
+
+    }
+
 }
