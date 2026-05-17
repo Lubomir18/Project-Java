@@ -34,4 +34,13 @@ public class Rectangle implements ShapeBase{
     public String info() {
         return "Rectangle (" + x + ", " + y + ")";
     }
+
+    @Override
+    public boolean isWithinRectangle(double rx, double ry, double rWidth, double rHeight) {
+
+        return x >= rx &&
+                y >= ry &&
+                x + width <= rx + rWidth &&
+                y + height <= ry + rHeight;
+    }
 }

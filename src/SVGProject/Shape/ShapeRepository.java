@@ -97,7 +97,7 @@ public class ShapeRepository {
         for(int i = 0; i < shapes.size(); i++){
             ShapeBase shape = shapes.get(i);
 
-            if(shape.isInside(x, y)){
+            if(shape.isWithinRectangle(x, y, width, height)){
                 Console.log((i + 1) + " " +  shape.info());
                 found = true;
             }

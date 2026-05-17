@@ -32,4 +32,13 @@ public class Circle implements ShapeBase {
     public String info() {
         return "Circle (" + cx + ", " + cy + ") r=" + r;
     }
+
+    @Override
+    public boolean isWithinRectangle(double x, double y, double width, double height) {
+
+        return cx - r >= x &&
+                cy - r >= y &&
+                cx + r <= x + width &&
+                cy + r <= y + height;
+    }
 }
