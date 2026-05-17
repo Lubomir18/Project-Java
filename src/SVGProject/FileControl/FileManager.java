@@ -1,6 +1,5 @@
 package SVGProject.FileControl;
 
-import java.awt.*;
 import java.io.*;
 import SVGProject.Commands.Console;
 import SVGProject.SVG.SvgWriter;
@@ -81,18 +80,5 @@ public class FileManager {
             Console.log("Error saving file");
         }
 
-    }
-
-    private void writeToFile(String path){
-        try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter(path));
-            writer.write(content);
-            writer.close();
-
-            Console.log("Successfully saved to " + path);
-
-        } catch (IOException e) {
-            throw new RuntimeException("Error saving file");
-        }
     }
 }
