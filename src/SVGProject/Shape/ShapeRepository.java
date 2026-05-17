@@ -13,23 +13,53 @@ public class ShapeRepository {
         shapes.add(s);
     }
 
+    public ShapeBase get(int index) {
+
+        if (index < 1 || index > shapes.size()) {
+            return null;
+        }
+
+        return shapes.get(index - 1);
+    }
+
+    public int size() {
+        return shapes.size();
+    }
+
     public void clear(){
         shapes.clear();
     }
 
     public void print(){
-        for (int i = 0; i < shapes.size(); i++){
-            Console.log((i + 1) + ". " + shapes.get(i).info());
+        if (shapes.isEmpty()) {
+            Console.log("No shapes available.");
+            return;
+        }
+
+        for (int i = 0; i < shapes.size(); i++) {
+
+            ShapeBase shape = shapes.get(i);
+            Console.log(
+                    (i + 1) + ". "
+                            + shape.getClass().getSimpleName()
+                            + " "
+                            + shape.info()
+            );
         }
     }
 
     public void erase(int index) {
 
         if (index < 1 || index > shapes.size()) {
+            Console.log("There is no figure number " + index + "!");
             return;
         }
 
-        shapes.remove(index - 1);
+        ShapeBase removed = shapes.remove(index - 1);
+
+        Console.log("Erased "
+                + removed.getClass().getSimpleName()
+                + " (" + index + ")");
     }
 
     public void translateAll(double dx, double dy){

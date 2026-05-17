@@ -83,17 +83,6 @@ public class FileManager {
 
     }
 
-    public void erase(int index) {
-        if (index < 1 || index > shapes.size()) {
-            Console.log("There is no figure number " + index + "!");
-            return;
-        }
-
-        ShapeBase removed = shapes.remove(index - 1);
-
-        Console.log("Erased " + removed.getClass().getSimpleName() + " (" + index + ")");
-    }
-
     private void writeToFile(String path){
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter(path));

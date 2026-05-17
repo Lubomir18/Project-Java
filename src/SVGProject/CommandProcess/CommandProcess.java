@@ -24,6 +24,8 @@ public class CommandProcess {
         commands.put("exit", new ExitCommand(fileManager));
         commands.put("print", new PrintCommand(shapeRepository));
         commands.put("create", new CreateCommand(shapeRepository));
+        commands.put("erase", new EraseCommand(shapeRepository));
+        commands.put("translate", new TranslateCommand(shapeRepository));
     }
 
     public void start(){
