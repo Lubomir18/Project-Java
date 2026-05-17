@@ -28,22 +28,6 @@ public class HelpCommand implements Command {
 
     }
 
-//    public static void CommandHelp(){
-//
-//        Console.log("Available Commands");
-//        Console.log("Help - Shows all commands");
-//        Console.log("Help Open - Info about Open Command");
-//        Console.log("Help Close - Info about Close Command");
-//        Console.log("Help Save - Info about Save Command");
-//        Console.log("Help Save AS - Info about Save AS Command");
-//        Console.log("Help Exit - Info about Exit Command");
-//        Console.log("Open");
-//        Console.log("Close");
-//        Console.log("Save");
-//        Console.log("Save AS");
-//        Console.log("Exit");
-//
-//    }
 
     public static void CommandHelpCommands(String command){
 

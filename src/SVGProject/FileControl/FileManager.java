@@ -38,23 +38,28 @@ public class FileManager {
 //    }
 
     public void open(String path) {
-        try {
-            File file = new File(path);
 
-            if (!file.exists()) {
-                file.createNewFile();
-            }
+        File file = new File(path);
+
+        if (!file.exists()) {
+            Console.log("File does not exist");
+            return;
+        }
+
+        if (!path.endsWith(".svg")) {
+            Console.log("Only SVG files are supported");
+            return;
+        }
+
+        try {
 
             repo.clear();
-
             SvgParser parser = new SvgParser();
             parser.parse(path, repo);
-
             currentFile = path;
-
             Console.log("Successfully opened " + path);
 
-        } catch (IOException e) {
+        } catch (Exception e) {
             Console.log("Error opening file");
         }
     }
