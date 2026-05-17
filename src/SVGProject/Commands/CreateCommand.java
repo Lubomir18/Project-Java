@@ -19,6 +19,13 @@ public class CreateCommand implements Command {
         try{
             ShapeBase shape;
 
+            if (args.length < 2) {
+                Console.log("Usage:");
+                Console.log("create circle [cx] [cy] [r] [color]");
+                Console.log("create rectangle [x] [y] [width] [height] [color]");
+                return;
+            }
+
             if(args[1].equalsIgnoreCase("circle")){
 
                 if (args.length < 5) {
@@ -32,12 +39,17 @@ public class CreateCommand implements Command {
                     fill = args[5];
                 }
 
-                shape = new Circle(
-                        Double.parseDouble(args[2]),
-                        Double.parseDouble(args[3]),
-                        Double.parseDouble(args[4]),
-                        fill
-                );
+                double cx = Double.parseDouble(args[2]);
+                double cy =Double.parseDouble(args[3]);
+                double r =Double.parseDouble(args[4]);
+
+                if (r <= 0) {
+                    Console.log("Radius must be positive");
+                    return;
+                }
+
+                shape = new Circle(cx,cy,r,fill);
+
             }
             else if(args[1].equalsIgnoreCase("rectangle")){
 
@@ -52,13 +64,18 @@ public class CreateCommand implements Command {
                     fill = args[6];
                 }
 
-                shape = new Rectangle(
-                        Double.parseDouble(args[2]),
-                        Double.parseDouble(args[3]),
-                        Double.parseDouble(args[4]),
-                        Double.parseDouble(args[5]),
-                        fill
-                );
+                double x = Double.parseDouble(args[2]);
+                double y =Double.parseDouble(args[3]);
+                double width =Double.parseDouble(args[4]);
+                double height =Double.parseDouble(args[5]);
+
+                if (width <= 0 ||  height <= 0) {
+                    Console.log("Width and height must be positive");
+                    return;
+                }
+
+                shape = new Rectangle(x,y,width,height,fill);
+
             } else {
                 Console.log("Unknown shape: " + args[1]);
                 return;
