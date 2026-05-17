@@ -26,6 +26,7 @@ public class CommandProcess {
         commands.put("create", new CreateCommand(shapeRepository));
         commands.put("erase", new EraseCommand(shapeRepository));
         commands.put("translate", new TranslateCommand(shapeRepository));
+        commands.put("within", new WithinCommand(shapeRepository));
     }
 
     public void start(){

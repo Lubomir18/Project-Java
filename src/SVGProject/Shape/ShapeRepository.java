@@ -74,10 +74,38 @@ public class ShapeRepository {
 
     public void printWithinCircle(double cx, double cy, double r){
 
+        boolean found = false;
+
+        for(int i = 0; i < shapes.size(); i++){
+            ShapeBase shape = shapes.get(i);
+
+            if(shape.isInside(cx, cy)){
+                Console.log((i + 1) + " " +  shape.info());
+                found = true;
+            }
+        }
+
+        if(!found){
+            Console.log("No figures are located within circle");
+        }
+
     }
 
-    public void printWithinRectangle(double cx, double cy, double width, double height){
+    public void printWithinRectangle(double x, double y, double width, double height){
+        boolean found = false;
 
+        for(int i = 0; i < shapes.size(); i++){
+            ShapeBase shape = shapes.get(i);
+
+            if(shape.isInside(x, y)){
+                Console.log((i + 1) + " " +  shape.info());
+                found = true;
+            }
+        }
+
+        if(!found){
+            Console.log("No figures are located within rectangle");
+        }
     }
 
 }

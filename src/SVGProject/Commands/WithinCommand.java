@@ -25,10 +25,22 @@ public class WithinCommand implements Command {
                 double cx = Double.parseDouble(args[2]);
                 double cy = Double.parseDouble(args[3]);
                 double r =  Double.parseDouble(args[4]);
+
+                repo.printWithinCircle(cx, cy, r);
+
+            }else if (args[1].equalsIgnoreCase("rectangle")){
+                double cx = Double.parseDouble(args[2]);
+                double cy = Double.parseDouble(args[3]);
+                double width = Double.parseDouble(args[4]);
+                double height = Double.parseDouble(args[5]);
+
+                repo.printWithinRectangle(cx, cy, width, height);
+
+            } else {
+                Console.log("Unknown area: " + args[1]);
             }
-
-            repo.printWithinCircle(cx, cy, r);
+        } catch (Exception e){
+            Console.log("Invalid within command");
         }
-
     }
 }
