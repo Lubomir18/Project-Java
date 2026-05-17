@@ -3,11 +3,13 @@ package SVGProject.Shape;
 public class Circle implements ShapeBase {
 
     private double cx, cy, r;
+    private String fillColor;
 
-    public Circle(double cx, double cy, double r) {
+    public Circle(double cx, double cy, double r, String fillColor) {
         this.cx = cx;
         this.cy = cy;
         this.r = r;
+        this.fillColor = fillColor;
     }
 
     @Override
@@ -25,12 +27,13 @@ public class Circle implements ShapeBase {
 
     @Override
     public String toSVG() {
-        return "<circle cx=\"" + cx + "\" cy=\"" + cy + "\" r=\"" + r + "\" />";
+
+        return "<circle cx=\"" + cx + "\" cy=\"" + cy + "\" r=\"" + r + "\" fill=\"" + fillColor + "\"/>";
     }
 
     @Override
     public String info() {
-        return "Circle (" + cx + ", " + cy + ") r=" + r;
+        return "Circle (" + cx + ", " + cy + ") r=" + r + " fill=" + fillColor;
     }
 
     @Override

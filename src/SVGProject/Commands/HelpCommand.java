@@ -67,8 +67,8 @@ public class HelpCommand implements Command {
 
             case "create":
                 Console.log("[command] Create");
-                Console.log("Create circle cx cy r");
-                Console.log("Create rectangle x y width height");
+                Console.log("Create circle cx cy r color");
+                Console.log("Create rectangle x y width height color");
                 break;
 
             case "print":

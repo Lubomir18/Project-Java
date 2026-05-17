@@ -23,7 +23,8 @@ public class CreateCommand implements Command {
                 shape = new Circle(
                         Double.parseDouble(args[2]),
                         Double.parseDouble(args[3]),
-                        Double.parseDouble(args[4])
+                        Double.parseDouble(args[4]),
+                        args[5]
                 );
             }
             else if(args[1].equalsIgnoreCase("rectangle")){
@@ -31,7 +32,8 @@ public class CreateCommand implements Command {
                         Double.parseDouble(args[2]),
                         Double.parseDouble(args[3]),
                         Double.parseDouble(args[4]),
-                        Double.parseDouble(args[5])
+                        Double.parseDouble(args[5]),
+                        args[6]
                 );
             } else {
                 Console.log("Unknown shape: " + args[1]);

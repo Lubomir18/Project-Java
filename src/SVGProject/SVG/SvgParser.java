@@ -26,8 +26,9 @@ public class SvgParser {
                     double cx = extract(line, "cx");
                     double cy = extract(line, "cy");
                     double r = extract(line, "r");
+                    String fillColor = extractString(line,"fill");
 
-                    repo.add(new Circle(cx,cy,r));
+                    repo.add(new Circle(cx,cy,r,fillColor));
                 }
 
                 if (line.startsWith("<rect")){
@@ -35,8 +36,9 @@ public class SvgParser {
                     double y = extract(line, "y");
                     double w = extract(line, "width");
                     double h = extract(line, "height");
+                    String fillColor = extractString(line, "fill");
 
-                    repo.add(new Rectangle(x, y, w, h));
+                    repo.add(new Rectangle(x, y, w, h, fillColor));
                 }
             }
 
@@ -55,4 +57,15 @@ public class SvgParser {
         return 0;
     }
 
+    private String extractString(String line, String attr) {
+
+        Pattern p = Pattern.compile(attr + "=\"([^\"]+)\"");
+        Matcher m = p.matcher(line);
+
+        if (m.find()) {
+            return m.group(1);
+        }
+
+        return "none";
+    }
 }
