@@ -12,8 +12,9 @@ public class ExitCommand implements Command {
     }
 
     @Override
-    public void execute(String[] args) {
-        Console.log("Exiting the program...");
+    public String execute(String[] args) {
+        System.out.println("Exiting the program...");
         System.exit(0);
+        return "";
     }
 }

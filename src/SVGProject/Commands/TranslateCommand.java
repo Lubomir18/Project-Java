@@ -13,20 +13,22 @@ public class TranslateCommand implements Command {
     }
 
     @Override
-    public void execute(String[] args) {
+    public String execute(String[] args) {
 
         try {
 
             if (args.length == 3) {
+
                 // translate dx dy (ALL)
                 double dx = Double.parseDouble(args[1]);
                 double dy = Double.parseDouble(args[2]);
 
                 repo.translateAll(dx, dy);
 
-                Console.log("Translated all figures");
+                return "Translated all figures";
 
             } else if (args.length == 4) {
+
                 // translate n dx dy
                 int index = Integer.parseInt(args[1]);
                 double dx = Double.parseDouble(args[2]);
@@ -35,20 +37,19 @@ public class TranslateCommand implements Command {
                 ShapeBase s = repo.get(index);
 
                 if (s == null) {
-                    Console.log("Invalid figure number " + index);
-                    return;
+                    return "Invalid figure number " + index;
                 }
 
                 s.translate(dx, dy);
 
-                Console.log("Translated figure (" + index + ")");
+                return "Translated figure (" + index + ")";
 
             } else {
-                Console.log("Usage: translate <n> dx dy OR translate dx dy");
+                return "Usage: translate <n> dx dy OR translate dx dy";
             }
 
         } catch (Exception e) {
-            Console.log("Invalid translate command");
+            return "Invalid translate command";
         }
     }
 }

@@ -12,17 +12,16 @@ public class EraseCommand implements Command {
     }
 
     @Override
-    public void execute(String[] args) {
+    public String execute(String[] args) {
         if (args.length < 2) {
-            Console.log("Usage: erase <n>");
-            return;
+            return "Usage: erase <n>";
         }
 
         try {
             int index = Integer.parseInt(args[1]);
-            repo.erase(index);
+            return repo.erase(index);
         } catch (Exception e) {
-            Console.log("Invalid erase command");
+            return "Invalid erase command";
         }
     }
 }

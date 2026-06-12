@@ -12,12 +12,11 @@ public class SaveAsCommand implements Command {
     }
 
     @Override
-    public void execute(String[] args) {
+    public String execute(String[] args) {
         if (args.length < 2) {
-            Console.log("Usage: save as <file>");
-            return;
+            return "Usage: save as <file>";
         }
 
-        fileManager.saveAs(args[1]);
+        return fileManager.saveAs(args[1]);
     }
 }

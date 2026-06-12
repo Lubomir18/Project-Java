@@ -12,93 +12,81 @@ public class HelpCommand implements Command {
     }
 
     @Override
-    public void execute(String[] args) {
+    public String execute(String[] args) {
 
         if (args.length == 1) {
-            printAll();
-            return;
+            return printAll();
         }
 
-        printCommand(args[1].toLowerCase());
+        return printCommand(args[1].toLowerCase());
 
     }
 
-    private void printAll() {
+    private String printAll() {
 
-        Console.log("Available commands:");
-
-        Console.log("open <file>      - Open SVG file");
-        Console.log("close            - Close current file");
-        Console.log("save             - Save current file");
-        Console.log("saveas <file>    - Save file as new path");
-        Console.log("create circle    - Create circle");
-        Console.log("create rectangle - Create rectangle");
-        Console.log("print            - Print all shapes");
-        Console.log("translate dx dy  - Moves all figures");
-        Console.log("translate n dx dy- Only moves n figure ");
-        Console.log("help [command]   - Show help");
-        Console.log("exit             - Exit program");
+        return "Available commands:" + System.lineSeparator()
+                + "open <file>      - Open SVG file" + System.lineSeparator()
+                + "close            - Close current file" + System.lineSeparator()
+                + "save             - Save current file" + System.lineSeparator()
+                + "saveas <file>    - Save file as new path" + System.lineSeparator()
+                + "create circle    - Create circle" + System.lineSeparator()
+                + "create rectangle - Create rectangle" + System.lineSeparator()
+                + "print            - Print all shapes" + System.lineSeparator()
+                + "translate dx dy  - Moves all figures" + System.lineSeparator()
+                + "translate n dx dy- Only moves n figure" + System.lineSeparator()
+                + "help [command]   - Show help" + System.lineSeparator()
+                + "exit             - Exit program";
     }
 
 
-    public static void printCommand(String command){
+    public static String printCommand(String command){
 
         switch (command) {
 
             case "open":
-                Console.log("[command] Open <file>");
-                Console.log("Opens SVG file and loads shapes.");
-                break;
+                return "[command] Open <file>" + System.lineSeparator()
+                        + "Opens SVG file and loads shapes.";
 
             case "close":
-                Console.log("[command] Close");
-                Console.log("Closes current opened file.");
-                break;
+                return "[command] Close" + System.lineSeparator()
+                        + "Closes current opened file.";
 
             case "save":
-                Console.log("[command] Save");
-                Console.log("Saves current opened file.");
-                break;
+                return "[command] Save" + System.lineSeparator()
+                        + "Saves current opened file.";
 
             case "saveas":
-                Console.log("[command] Saveas <file>");
-                Console.log("Saves file with new name.");
-                break;
+                return "[command] Saveas <file>" + System.lineSeparator()
+                        + "Saves file with new name.";
 
             case "create":
-                Console.log("[command] Create");
-                Console.log("Create circle cx cy r color");
-                Console.log("Create rectangle x y width height color");
-                break;
+                return "[command] Create" + System.lineSeparator()
+                        + "Create circle cx cy r color" + System.lineSeparator()
+                        + "Create rectangle x y width height color";
 
             case "print":
-                Console.log("[command] Print");
-                Console.log("Prints all shapes.");
-                break;
+                return "[command] Print" + System.lineSeparator()
+                        + "Prints all shapes.";
 
             case "erase":
-                Console.log("[command] Erase <n>");
-                Console.log("Deletes figure by number.");
-                break;
+                return "[command] Erase <n>" + System.lineSeparator()
+                        + "Deletes figure by number.";
 
             case "translate":
-                Console.log("Translate dx dy - Moves all figures");
-                Console.log("Translate n dx dy - Moves only n selected figure");
-                Console.log("To see what figure to select, use command print");
-                break;
+                return "Translate dx dy - Moves all figures" + System.lineSeparator()
+                        + "Translate n dx dy - Moves only n selected figure" + System.lineSeparator()
+                        + "To see what figure to select, use command print";
 
             case "help":
-                Console.log("[command] Help");
-                Console.log("Shows help information.");
-                break;
+                return "[command] Help" + System.lineSeparator()
+                        + "Shows help information.";
 
             case "exit":
-                Console.log("[command] Exit");
-                Console.log("Exits application.");
-                break;
+                return "[command] Exit" + System.lineSeparator()
+                        + "Exits application.";
 
             default:
-                Console.log("No help found for command: " + command);
+                return "No help found for command: " + command;
         }
 
     }

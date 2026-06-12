@@ -13,7 +13,7 @@ public class PrintCommand implements Command {
     }
 
     @Override
-    public void execute(String[] args) {
-        repository.print();
+    public String execute(String[] args) {
+        return repository.print();
     }
 }

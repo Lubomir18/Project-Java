@@ -12,7 +12,7 @@ public class SaveCommand implements Command {
     }
 
     @Override
-    public void execute(String[] args) {
-        fileManager.save();
+    public String execute(String[] args) {
+        return fileManager.save();
     }
 }

@@ -12,35 +12,45 @@ public class WithinCommand implements Command {
     }
 
     @Override
-    public void execute(String[] args) {
+    public String execute(String[] args) {
 
         if (args.length < 2) {
-            Console.log("Usage:");
-            Console.log("within circle cx cy r");
-            Console.log("within rectangle x y width height");
+            return "Usage:" + System.lineSeparator()
+                    + "within circle cx cy r" + System.lineSeparator()
+                    + "within rectangle x y width height";
         }
 
         try  {
             if(args[1].equalsIgnoreCase("circle")){
+
+                if (args.length < 5) {
+                    return "Usage: within circle cx cy r";
+                }
+
                 double cx = Double.parseDouble(args[2]);
                 double cy = Double.parseDouble(args[3]);
                 double r =  Double.parseDouble(args[4]);
 
-                repo.printWithinCircle(cx, cy, r);
+                return repo.printWithinCircle(cx, cy, r);
 
             }else if (args[1].equalsIgnoreCase("rectangle")){
+
+                if (args.length < 6) {
+                    return "Usage: within rectangle x y width height";
+                }
+
                 double cx = Double.parseDouble(args[2]);
                 double cy = Double.parseDouble(args[3]);
                 double width = Double.parseDouble(args[4]);
                 double height = Double.parseDouble(args[5]);
 
-                repo.printWithinRectangle(cx, cy, width, height);
+                return repo.printWithinRectangle(cx, cy, width, height);
 
             } else {
-                Console.log("Unknown area: " + args[1]);
+                return "Unknown area: " + args[1];
             }
         } catch (Exception e){
-            Console.log("Invalid within command");
+            return "Invalid within command";
         }
     }
 }

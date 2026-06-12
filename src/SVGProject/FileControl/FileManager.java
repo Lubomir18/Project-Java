@@ -19,18 +19,16 @@ public class FileManager {
         return currentFile != null;
     }
 
-    public void open(String path) {
+    public String open(String path) {
 
         File file = new File(path);
 
         if (!file.exists()) {
-            Console.log("File does not exist");
-            return;
+            return "File does not exist";
         }
 
         if (!path.endsWith(".svg")) {
-            Console.log("Only SVG files are supported");
-            return;
+            return "Only SVG files are supported";
         }
 
         try {
@@ -39,45 +37,45 @@ public class FileManager {
             SvgParser parser = new SvgParser();
             parser.parse(path, repo);
             currentFile = path;
-            Console.log("Successfully opened " + path);
+            return "Successfully opened " + path;
 
         } catch (Exception e) {
-            Console.log("Error opening file");
+            return "Error opening file";
         }
     }
 
-    public void close(){
+    public String close(){
         if(!hasFile()){
-            Console.log("No file opened");
-            return;
+            return"No file opened";
         }
 
-        Console.log("Successfully closed " + currentFile);
+        String result = "Successfully closed " + currentFile;
         currentFile = null;
         content = null;
+        repo.clear();
+        return result;
     }
 
-    public void save(){
+    public String save(){
         if(currentFile == null){
-            Console.log("No file opened");
-            return;
+            return "No file opened";
         }
 
         try {
             new SvgWriter().save(currentFile, repo);
-            Console.log("Successfully saved " + currentFile);
+            return "Successfully saved " + currentFile;
         } catch (Exception e) {
-            Console.log("Error saving file");
+            return "Error saving file";
         }
     }
 
-    public void saveAs(String path){
+    public String saveAs(String path){
         try {
             new SvgWriter().save(path, repo);
             currentFile = path;
-            Console.log("Successfully saved " + path);
+            return "Successfully saved " + path;
         } catch (Exception e) {
-            Console.log("Error saving file");
+            return "Error saving file";
         }
 
     }
