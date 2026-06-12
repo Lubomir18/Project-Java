@@ -15,8 +15,8 @@ public class WithinCommand implements Command {
     public String execute(String[] args) {
 
         if (args.length < 2) {
-            return "Usage:" + System.lineSeparator()
-                    + "within circle cx cy r" + System.lineSeparator()
+            return "Usage:" + "\n"
+                    + "within circle cx cy r" + "\n"
                     + "within rectangle x y width height";
         }
 

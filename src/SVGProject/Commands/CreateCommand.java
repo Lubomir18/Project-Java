@@ -20,8 +20,8 @@ public class CreateCommand implements Command {
             ShapeBase shape;
 
             if (args.length < 2) {
-                return "Usage:" + System.lineSeparator() +
-                "create circle [cx] [cy] [r] [color]" + System.lineSeparator() +
+                return "Usage:" + "\n" +
+                "create circle [cx] [cy] [r] [color]" + "\n" +
                 "create rectangle [x] [y] [width] [height] [color]";
 
             }

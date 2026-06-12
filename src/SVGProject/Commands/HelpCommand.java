@@ -24,17 +24,17 @@ public class HelpCommand implements Command {
 
     private String printAll() {
 
-        return "Available commands:" + System.lineSeparator()
-                + "open <file>      - Open SVG file" + System.lineSeparator()
-                + "close            - Close current file" + System.lineSeparator()
-                + "save             - Save current file" + System.lineSeparator()
-                + "saveas <file>    - Save file as new path" + System.lineSeparator()
-                + "create circle    - Create circle" + System.lineSeparator()
-                + "create rectangle - Create rectangle" + System.lineSeparator()
-                + "print            - Print all shapes" + System.lineSeparator()
-                + "translate dx dy  - Moves all figures" + System.lineSeparator()
-                + "translate n dx dy- Only moves n figure" + System.lineSeparator()
-                + "help [command]   - Show help" + System.lineSeparator()
+        return "Available commands:" + "\n"
+                + "open <file>      - Open SVG file" + "\n"
+                + "close            - Close current file" + "\n"
+                + "save             - Save current file" + "\n"
+                + "saveas <file>    - Save file as new path" + "\n"
+                + "create circle    - Create circle" + "\n"
+                + "create rectangle - Create rectangle" + "\n"
+                + "print            - Print all shapes" + "\n"
+                + "translate dx dy  - Moves all figures" + "\n"
+                + "translate n dx dy- Only moves n figure" + "\n"
+                + "help [command]   - Show help" + "\n"
                 + "exit             - Exit program";
     }
 
@@ -44,45 +44,45 @@ public class HelpCommand implements Command {
         switch (command) {
 
             case "open":
-                return "[command] Open <file>" + System.lineSeparator()
+                return "[command] Open <file>" + "\n"
                         + "Opens SVG file and loads shapes.";
 
             case "close":
-                return "[command] Close" + System.lineSeparator()
+                return "[command] Close" + "\n"
                         + "Closes current opened file.";
 
             case "save":
-                return "[command] Save" + System.lineSeparator()
+                return "[command] Save" + "\n"
                         + "Saves current opened file.";
 
             case "saveas":
-                return "[command] Saveas <file>" + System.lineSeparator()
+                return "[command] Saveas <file>" + "\n"
                         + "Saves file with new name.";
 
             case "create":
-                return "[command] Create" + System.lineSeparator()
-                        + "Create circle cx cy r color" + System.lineSeparator()
+                return "[command] Create" + "\n"
+                        + "Create circle cx cy r color" + "\n"
                         + "Create rectangle x y width height color";
 
             case "print":
-                return "[command] Print" + System.lineSeparator()
+                return "[command] Print" + "\n"
                         + "Prints all shapes.";
 
             case "erase":
-                return "[command] Erase <n>" + System.lineSeparator()
+                return "[command] Erase <n>" + "\n"
                         + "Deletes figure by number.";
 
             case "translate":
-                return "Translate dx dy - Moves all figures" + System.lineSeparator()
-                        + "Translate n dx dy - Moves only n selected figure" + System.lineSeparator()
+                return "Translate dx dy - Moves all figures" + "\n"
+                        + "Translate n dx dy - Moves only n selected figure" + "\n"
                         + "To see what figure to select, use command print";
 
             case "help":
-                return "[command] Help" + System.lineSeparator()
+                return "[command] Help" + "\n"
                         + "Shows help information.";
 
             case "exit":
-                return "[command] Exit" + System.lineSeparator()
+                return "[command] Exit" + "\n"
                         + "Exits application.";
 
             default:
