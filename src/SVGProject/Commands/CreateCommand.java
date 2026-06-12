@@ -15,22 +15,22 @@ public class CreateCommand implements Command {
     }
 
     @Override
-    public void execute(String[] args) {
+    public String execute(String[] args) {
         try{
             ShapeBase shape;
 
             if (args.length < 2) {
-                Console.log("Usage:");
-                Console.log("create circle [cx] [cy] [r] [color]");
-                Console.log("create rectangle [x] [y] [width] [height] [color]");
-                return;
+                return "Usage:" + System.lineSeparator() +
+                "create circle [cx] [cy] [r] [color]" + System.lineSeparator() +
+                "create rectangle [x] [y] [width] [height] [color]";
+
             }
 
             if(args[1].equalsIgnoreCase("circle")){
 
                 if (args.length < 5) {
-                    Console.log("Usage: create circle cx cy r [color]");
-                    return;
+                    return "Usage: create circle cx cy r [color]";
+
                 }
 
                 String fill = "black";
@@ -44,8 +44,7 @@ public class CreateCommand implements Command {
                 double r =Double.parseDouble(args[4]);
 
                 if (r <= 0) {
-                    Console.log("Radius must be positive");
-                    return;
+                    return "Radius must be positive";
                 }
 
                 shape = new Circle(cx,cy,r,fill);
@@ -54,8 +53,7 @@ public class CreateCommand implements Command {
             else if(args[1].equalsIgnoreCase("rectangle")){
 
                 if (args.length < 6) {
-                    Console.log("Usage: create rectangle x y width height [color]");
-                    return;
+                    return "Usage: create rectangle x y width height [color]";
                 }
 
                 String fill = "black";
@@ -70,22 +68,20 @@ public class CreateCommand implements Command {
                 double height =Double.parseDouble(args[5]);
 
                 if (width <= 0 ||  height <= 0) {
-                    Console.log("Width and height must be positive");
-                    return;
+                    return "Width and height must be positive";
                 }
 
                 shape = new Rectangle(x,y,width,height,fill);
 
             } else {
-                Console.log("Unknown shape: " + args[1]);
-                return;
+                return "Unknown shape: " + args[1];
             }
 
             shapeRepository.add(shape);
 
-            Console.log("Created " + shape.info());
+            return"Created " + shape.info();
         } catch (RuntimeException e) {
-            Console.log("Error Creating Shape");
+            return"Error Creating Shape";
         }
     }
 }

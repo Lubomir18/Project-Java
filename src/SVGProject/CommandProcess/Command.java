@@ -1,5 +1,5 @@
 package SVGProject.CommandProcess;
 
 public interface Command {
-    void execute(String[] args);
+    String execute(String[] args);
 }

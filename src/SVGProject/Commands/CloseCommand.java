@@ -10,7 +10,7 @@ public class CloseCommand implements Command {
         this.fileManager = fileManager;
     }
 
-    public void execute(String[] args) {
-        fileManager.close();
+    public String execute(String[] args) {
+        return fileManager.close();
     }
 }
