@@ -8,6 +8,7 @@ public class Application {
 
         CommandProcess process = new CommandProcess();
         process.start();
+        
 
     }
 

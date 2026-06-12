@@ -30,36 +30,40 @@ public class ShapeRepository {
         shapes.clear();
     }
 
-    public void print(){
+    public String print(){
         if (shapes.isEmpty()) {
-            Console.log("No shapes available.");
-            return;
+            return "No shapes available.";
         }
+
+        StringBuilder result = new StringBuilder();
 
         for (int i = 0; i < shapes.size(); i++) {
 
             ShapeBase shape = shapes.get(i);
-            Console.log(
-                    (i + 1) + ". "
-                            + shape.getClass().getSimpleName()
-                            + " "
-                            + shape.info()
-            );
+            result.append(i + 1)
+                    .append(". ")
+                    .append(shape.getClass().getSimpleName())
+                    .append(" ")
+                    .append(shape.info());
+
+            if (i < shapes.size() - 1) {
+                result.append(System.lineSeparator());
+            }
         }
+        return result.toString();
     }
 
-    public void erase(int index) {
+    public String erase(int index) {
 
         if (index < 1 || index > shapes.size()) {
-            Console.log("There is no figure number " + index + "!");
-            return;
+            return"There is no figure number " + index + "!";
         }
 
         ShapeBase removed = shapes.remove(index - 1);
 
-        Console.log("Erased "
+        return "Erased "
                 + removed.getClass().getSimpleName()
-                + " (" + index + ")");
+                + " (" + index + ")";
     }
 
     public void translateAll(double dx, double dy){
@@ -72,40 +76,49 @@ public class ShapeRepository {
         return shapes;
     }
 
-    public void printWithinCircle(double cx, double cy, double r){
+    public String printWithinCircle(double cx, double cy, double r){
 
         boolean found = false;
+        StringBuilder result = new StringBuilder();
 
         for(int i = 0; i < shapes.size(); i++){
             ShapeBase shape = shapes.get(i);
 
             if(shape.isInside(cx, cy)){
-                Console.log((i + 1) + " " +  shape.info());
+                if (found) {
+                    result.append(System.lineSeparator());
+                }
+                result.append(i + 1).append(" ").append(shape.info());
                 found = true;
             }
         }
 
         if(!found){
-            Console.log("No figures are located within circle");
+            return "No figures are located within circle";
         }
-
+        return result.toString();
     }
 
-    public void printWithinRectangle(double x, double y, double width, double height){
+    public String printWithinRectangle(double x, double y, double width, double height){
         boolean found = false;
+        StringBuilder result = new StringBuilder();
 
         for(int i = 0; i < shapes.size(); i++){
             ShapeBase shape = shapes.get(i);
 
             if(shape.isWithinRectangle(x, y, width, height)){
-                Console.log((i + 1) + " " +  shape.info());
+                if (found) {
+                    result.append(System.lineSeparator());
+                }
+                result.append(i + 1).append(" ").append(shape.info());
                 found = true;
             }
         }
 
         if(!found){
-            Console.log("No figures are located within rectangle");
+            return "No figures are located within rectangle";
         }
+        return result.toString();
     }
 
 }

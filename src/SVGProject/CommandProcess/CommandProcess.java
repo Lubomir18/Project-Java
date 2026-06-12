@@ -33,18 +33,28 @@ public class CommandProcess {
         Scanner scanner = new Scanner(System.in);
 
         while(true){
-            Console.log("> ");
-            String input = scanner.nextLine();
+            System.out.print("> ");
+            String input = scanner.nextLine().trim();
 
-            String[] parts = input.split(" ");
+            if (input.isEmpty()) {
+                continue;
+            }
+
+            String[] parts = input.split("\\s+");
             String commandName = parts[0].toLowerCase();
 
             Command command = commands.get(commandName);
 
+            String result;
+
             if(command != null){
-                command.execute(parts);
+                result = command.execute(parts);
             } else {
-                Console.log("Unknown command");
+                result = "Unknown command";
+            }
+
+            if (result != null && !result.isEmpty()) {
+                System.out.println(result);
             }
         }
     }
